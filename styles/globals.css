@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+:root {
+	--negro: rgb(23, 24, 33);
+	--blanco: #f3f3f7;
+	--celeste: #49b9f7;
+	--celesteOscuro: #3184b1;
+}
+* {
+	font-family: 'Poppins', sans-serif;
+	scroll-behavior: smooth;
+	letter-spacing: 1px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+main {
+	background-image: radial-gradient(rgb(49, 50, 66) 1px, transparent 1px),
+		radial-gradient(rgb(49, 50, 66) 1px, transparent 1px);
+	background-size: 65px 65px;
+	background-position: 0 0, 32.5px 32.5px;
+	background-color: var(--negro);
+}
+
+.offBanner,
+.onBanner {
+	transition: 0.4s ease-in-out;
+	aspect-ratio: 1;
+	z-index: 1;
+}
+
+.onBanner {
+	top: 1rem;
+	right: calc(100% - 4rem);
+	width: 3rem;
+	animation: move2 1.2s both;
+}
+
+.onBanner > * {
+	animation: canvasAppear2 0.3s 0.8s both ease-in-out;
+}
+
+@keyframes move2 {
+	from {
+		background-color: var(--celesteOscuro);
+		border-radius: 50%;
+		filter: blur(3px);
+	}
+	to {
+		border-radius: 100%;
+	}
+}
+@keyframes move {
+	from {
+		background-color: var(--celesteOscuro);
+		border-radius: 50%;
+		filter: blur(3px);
+	}
+	to {
+		border-radius: 100%;
+	}
+}
+
+@keyframes canvasAppear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes canvasAppear2 {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.offBanner {
+	right: 3rem;
+	top: calc(40px + 5rem);
+	width: clamp(300px, 40%, 500px);
+	animation: move 1.2s both;
+}
+
+.offBanner > * {
+	animation: canvasAppear 0.3s 0.8s both ease-in-out;
+}
+
+@media (min-width: 1280px) {
+	.offBanner {
+		right: calc((100% - 1280px) / 2 + 3rem);
+	}
+}
+
+@media (max-width: 900px) {
+	.offBanner {
+		right: calc((100% - clamp(300px, 40%, 500px)) / 2);
+	}
+}
+
+.heroSection {
+	height: 50vw;
+	max-height: calc(500px + 4rem);
+}
+@media (max-width: 900px) {
+	.heroSection {
+		margin-top: calc(clamp(300px, 40%, 500px) + 5rem);
+	}
+	.heroSection > div {
+		width: 100%;
+	}
+	.heroSection > div > h1 {
+		font-size: 1.2rem;
+	}
+	.heroSection > div > h2 {
+		font-size: 1.1rem;
+	}
+	.heroSection > div > .btn {
+		width: 100% !important;
+		text-align: center;
+	}
+}
+
+header > aside > a {
+	letter-spacing: 2px;
+	position: relative;
+}
+
+@media (min-width: 900px) {
+	header > aside > a::before {
+		content: '';
+		position: absolute;
+		width: 0%;
+		height: 2px;
+		bottom: -2px;
+		transition: 0.2s;
+		background: linear-gradient(180deg, var(--celeste), var(--celesteOscuro));
+	}
+
+	header > aside > a:hover:before {
+		width: 100%;
+	}
+}
+
+.btn {
+	display: inline-block;
+	padding: 1rem;
+	border-radius: 0.3rem;
+	background: linear-gradient(-20deg, var(--celeste), var(--celesteOscuro));
+	background-size: 150% 150%;
+	color: var(--negro);
+	transition: 0.2s;
+	width: 10rem;
+}
+
+@media (min-width: 900px) {
+	.btn:hover {
+		background-position: -0.5rem -0.5rem;
+	}
+}
+
+.linearText {
+	background: -webkit-linear-gradient(-80deg, var(--celeste), var(--celesteOscuro));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.logo {
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
