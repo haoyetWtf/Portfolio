@@ -4,34 +4,6 @@ import { contactData } from '../data';
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    try {
-      // Replace 'YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', and 'YOUR_EMAILJS_USER_ID' with your Email.js credentials
-      const result = await emailjs.sendForm(
-        'service_hicm2ou',
-        'template_ysiljha',
-        e.target as HTMLFormElement,
-        'uRs5AYBjREzkWq6dpqC_8'
-      );
-
-      console.log('Email sent successfully:', result);
-    } catch (error) {
-      console.error('Error sending email:', error);
-    }
-  };
 
   return (
     <section id='contactSection' className='pb-16 px-8 md:px-11'>
@@ -49,7 +21,7 @@ const Contact = () => {
           ))}
         </ul>
         <div className='w-full md:w-1/2'>
-          <form className='max-w-md mx-auto' action='https://formsubmit.io/send/236cc318-746c-4653-a9a7-29f4dd20011f' method='POST' onSubmit={handleSubmit}>
+          <form method="POST" action="https://formsubmit.co/haoyet.law@gmail.com" enctype="multipart/form-data">
             <div className='mb-4'>
               <label className='block text-xl font-light mb-2' htmlFor='name'>
                 Name:
