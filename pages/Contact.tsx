@@ -39,7 +39,7 @@ const Contact = () => {
           ))}
         </ul>
         <div className='w-full md:w-1/2'>
-          <form id="contactform" action="https://formsubmit.io/send/YOUR_FORMSUBMIT_ID" method="POST" onSubmit={handleSubmit}>
+          <form id="contactform" action="https://formsubmit.io/send/haoyet.law@gmail.com" method="POST" onSubmit={handleSubmit}>
             <div className='mb-4'>
               <label className='block text-xl font-light mb-2' htmlFor='name'>
                 Name:
