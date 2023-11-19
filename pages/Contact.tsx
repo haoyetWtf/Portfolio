@@ -1,9 +1,27 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Spacer } from '../components/Spacer';
 import { contactData } from '../data';
-import emailjs from 'emailjs-com';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle form submission logic here (you can replace this with your preferred solution)
+    console.log('Form submitted:', formData);
+
+    // Optionally, you can reset the form fields after submission
+    setFormData({ name: '', email: '', message: '' });
+  };
 
   return (
     <section id='contactSection' className='pb-16 px-8 md:px-11'>
@@ -21,7 +39,7 @@ const Contact = () => {
           ))}
         </ul>
         <div className='w-full md:w-1/2'>
-        <form id="contactform" action="https://formsubmit.io/send/haoyet.law@gmail.com" method="POST">
+          <form id="contactform" action="https://formsubmit.io/send/YOUR_FORMSUBMIT_ID" method="POST" onSubmit={handleSubmit}>
             <div className='mb-4'>
               <label className='block text-xl font-light mb-2' htmlFor='name'>
                 Name:
