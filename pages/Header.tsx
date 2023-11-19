@@ -6,8 +6,7 @@ import { TbArrowUpCircle } from 'react-icons/tb';
 import { Cubo } from '../components/Cubo';
 export const Header = ({ isOnBanner, isMobile }: { isOnBanner: boolean; isMobile: boolean }) => {
 	return (
-		<link rel="shortcut icon" href="https://media.discordapp.net/attachments/1160225290937700456/1175601829246144562/download-removebg-preview.png?ex=656bd385&is=65595e85&hm=9204563eaf043d4061344bbe1447500ec30f627525c2d8ec57fdc8f6c70bf3d6&=&width=337&height=337" type="image/png" />
-  		<link rel="icon" href="https://media.discordapp.net/attachments/1160225290937700456/1175601829246144562/download-removebg-preview.png?ex=656bd385&is=65595e85&hm=9204563eaf043d4061344bbe1447500ec30f627525c2d8ec57fdc8f6c70bf3d6&=&width=337&height=337" type="image/png" />
+
 		<header className='sticky top-0 flex justify-end w-full h-20 px-1 mb-8 backdrop-blur-md py-9 align-center'>
 			<Cubo isOnBanner={isOnBanner} />
 			<h1
