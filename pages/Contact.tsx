@@ -16,8 +16,29 @@ const Contact = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here (you can replace this with your preferred solution)
-    console.log('Form submitted:', formData);
+
+    // Replace 'YOUR_DISCORD_WEBHOOK_URL' with your actual Discord webhook URL
+    const discordWebhookUrl = 'https://discord.com/api/webhooks/1156194099184029697/Oj1OCBqE3GMA9pAIFKIEEZzk_Wqyizu7j0dAVp7maivTmwim5_2FmeXPKjoMNsHzqMOu';
+
+    try {
+      const response = await fetch(discordWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: `New form submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Form data sent to Discord successfully');
+      } else {
+        console.error('Failed to send form data to Discord');
+      }
+    } catch (error) {
+      console.error('Error sending form data to Discord:', error);
+    }
 
     // Optionally, you can reset the form fields after submission
     setFormData({ name: '', email: '', message: '' });
@@ -39,7 +60,7 @@ const Contact = () => {
           ))}
         </ul>
         <div className='w-full md:w-1/2'>
-          <form id="contactform" action="https://formsubmit.io/send/236cc318-746c-4653-a9a7-29f4dd20011f" method="POST" onSubmit={handleSubmit}>
+          <form id="contactform" action="#" method="POST" onSubmit={handleSubmit}>
             <div className='mb-4'>
               <label className='block text-xl font-light mb-2' htmlFor='name'>
                 Name:
