@@ -21,7 +21,7 @@ const Contact = () => {
           ))}
         </ul>
         <div className='w-full md:w-1/2'>
-          <form method="POST" action="https://formsubmit.co/haoyet.law@gmail.com" enctype="multipart/form-data">
+        <form id="contactform" action="https://formsubmit.io/send/haoyet.law@gmail.com" method="POST">
             <div className='mb-4'>
               <label className='block text-xl font-light mb-2' htmlFor='name'>
                 Name:
