@@ -51,7 +51,7 @@ export const contactData = [
 	{
 		Icon: <AiOutlineYoutube />,
 		text: 'haoyet08',
-		url: 'https://youtube.com/@haoyet08',
+		url: 'https://www.youtube.com/@haoyet08gaming',
 	},
 	{
 		Icon: <AiOutlineInstagram />,
